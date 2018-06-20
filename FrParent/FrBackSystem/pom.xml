@@ -13,23 +13,27 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.4.RELEASE</version>
-    <relativePath/> <!-- lookup parent from repository -->
+   <parent>
+    <groupId>com.fr</groupId>
+	<artifactId>Fr-Parent</artifactId>
+	<version>Fr1.0.0</version>
   </parent>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-  </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
 
     <dependency>
@@ -55,6 +59,23 @@
       <artifactId>springfox-swagger2</artifactId>
       <version>2.2.2</version>
       <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fr</groupId>
+      <artifactId>FrCommon</artifactId>
+      <version>Fr1.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt</artifactId>
+      <version>0.7.0</version>
     </dependency>
 
     <dependency>
