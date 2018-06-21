@@ -1,7 +1,7 @@
 package com.fright.security;
 
 import com.fright.model.sys.SysUser;
-import com.fright.repository.UserRepository;
+import com.fright.repository.SysUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,9 +21,9 @@ import java.io.IOException;
  */
 @Component
 public class MockUserAuthenticationFilter extends OncePerRequestFilter {
-
     @Autowired
-    private UserRepository userRepository;
+    private SysUserRepository sysUserRepository;
+
     @Value("${mock.username}")
     private String mockUsername;
 
@@ -37,7 +37,7 @@ public class MockUserAuthenticationFilter extends OncePerRequestFilter {
             username = mockUsername;
         }
         if (!StringUtils.isEmpty(username)) {
-            SysUser user = userRepository.findByUsername(username);
+            SysUser user = sysUserRepository.findByUsername(username);
             if (user != null) {
                 SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
             }

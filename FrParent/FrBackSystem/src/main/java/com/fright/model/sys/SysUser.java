@@ -21,9 +21,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SysUser extends BaseModel implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String username;
     private String password;
     private String nickname;

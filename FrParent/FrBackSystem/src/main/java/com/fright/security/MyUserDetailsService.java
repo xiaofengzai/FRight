@@ -1,7 +1,7 @@
 package com.fright.security;
 
 import com.fright.model.sys.SysUser;
-import com.fright.repository.UserRepository;
+import com.fright.repository.SysUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,7 +12,7 @@ import org.springframework.util.StringUtils;
 @Component
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
-    private UserRepository userRepository;
+    private SysUserRepository sysUserRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -20,7 +20,7 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("用户名不能空！");
         }
 
-        SysUser user = userRepository.findByUsername(username);
+        SysUser user = sysUserRepository.findByUsername(username);
         if (user == null)
             throw new UsernameNotFoundException("用户不存在！");
 

@@ -1,6 +1,6 @@
 package com.fr.utils.excel;
 
-import com.fr.common.EnumMessage;
+import com.fr.utils.enums.EnumMessage;
 import com.fr.common.GlobalConstant;
 
 

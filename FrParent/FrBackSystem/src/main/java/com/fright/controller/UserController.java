@@ -2,7 +2,7 @@ package com.fright.controller;
 
 import com.fright.common.ResultModel;
 import com.fright.model.sys.SysUser;
-import com.fright.repository.UserRepository;
+import com.fright.repository.SysUserRepository;
 import com.fright.viewmodel.UserRegisterRequest;
 import com.fright.viewmodel.UserViewModel;
 import io.swagger.annotations.Api;
@@ -21,7 +21,7 @@ import java.util.List;
 @Api(value = "用户管理接口")
 class UserController {
     @Autowired
-    private UserRepository userRepository;
+    private SysUserRepository sysUserRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -34,7 +34,7 @@ class UserController {
     @PostMapping("/signup")
     public ResultModel signUp(@RequestBody UserRegisterRequest request) {
         SysUser user=new SysUser(request.getUsername(),bCryptPasswordEncoder.encode(request.getPassword()));
-        userRepository.save(user);
+        sysUserRepository.save(user);
         return ResultModel.SuccessResult();
     }
 }

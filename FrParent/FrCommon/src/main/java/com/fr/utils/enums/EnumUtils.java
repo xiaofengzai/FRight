@@ -1,4 +1,4 @@
-package com.fr.common;
+package com.fr.utils.enums;
 
 
 import java.lang.reflect.Method;

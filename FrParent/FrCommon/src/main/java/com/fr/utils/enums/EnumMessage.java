@@ -1,4 +1,4 @@
-package com.fr.common;
+package com.fr.utils.enums;
 
 public interface EnumMessage<T>{
     T getValue();
